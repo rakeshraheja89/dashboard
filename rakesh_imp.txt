@@ -1,0 +1,265 @@
+1) how to install git
+
+sudo yum install -y git
+yum - package manager
+
+-y = not ask for yes
+
+(check git version)
+git --version
+
+2) how to add configuration
+
+(add config for git )
+
+git config --global user.name "rakesh"
+git config --global user.email rakesh.raheja89@gmail.com
+ssh-keygen -t rsa -b 4096
+4096 : lenght of the key
+
+3) now how to link git hub and certificate 
+(create key for your account )
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDLM3AjxjLY1lg6Y/xKfa1m3878NlXxk/8OWLrjLmjyr1eAcvFMquWvO9nxPI9Ues4Eg+hwlls60dUxW9rjuaET2exn6ft8R0/6IQsQvMLG2bbzQlRRiUdganCeLt0EaIA1AzTJd915fx75g8rsh15Yt3H/apXFcH6ZCsybJy542a6SZSFK/XvKzL3ZD/yELSCpE13zobGrX2+bfe9ZBSw/rFfX/JJDvir9Vj7Ok+9NAGAWr88VlPB1XkN8B15uNGHRYZ8eE47vCAbuKYOS+G1E2Btv9YonZiiv9nvK5ChhfilnATvbxi5ccA4iCQqDwe5O3dbMT88piRRUn4i0OwwyvqYaOx3THRSE+MAaI+DpIECV4JuFFB8MhCDwP6cLLZU76s0v+mHfxsLP8YeLzF3SKBvWAEAPBaHzl3q0i3ZZEYbddUolFIOukeiVipoxGhRyMP0aVibOFl/l5fBtaHKMHq0sa6eFhtbV2BLYKw/EuJ40hHFeTr1JnJyH8blgARsroSS2+3YMlAHryluOjgW7Kdmg5V7mzSbvA/FZovKQkzEH7Kb7rp5sXpKgTP3ITQ7r9nLzXQiV2sxrQPVYGNgnxNxIVM7JyifvizRH2B2zyw94qnWiDRJfHu7C2pozw3xjG7cImu8ooXqiTggl13wZriZRXO8TVNJ80rNzh/Ghkw== centos@ip-10-0-1-121.us-west-2.compute.internal
+
+go to git hub= setting - ssh - new ssh key and paste it 
+
+4) cloning a code and creating a new branch 
+
+copy any code 
+fork
+now clone or download - copy link 
+https://github.com/rakeshraheja89/sample-java-programs.git
+
+use ssh instead of https 
+git@github.com:rakeshraheja89/sample-java-programs.git 
+
+git clone git@github.com:rakeshraheja89/sample-java-programs.git
+
+5) cd sample-java-programs
+ls -al
+ git checkout -b (why b = new branch if not required then just git checkout) 
+ git checkout -b devbranch
+
+5 ) commit a new file into our branch
+
+ git status
+add new file - kuch bhi
+now again
+dev status
+6) add this file into branch
+
+git add .
+
+ git status
+
+7) commit into git 
+
+git commit -m "added devfile for testing"
+git status
+
+8 ) push this change to github
+
+git push (if didnt work thne we used)
+
+git config --global push.default simple
+
+9 ) 
+[centos@ip-10-0-1-121 sample-java-programs]$ git status
+# On branch devbranch
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       devfile
+nothing added to commit but untracked files present (use "git add" to track)
+
+10 ) push
+
+git push --set-upstream origin devbranch
+
+Counting objects: 4, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 322 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'devbranch' on GitHub by visiting:
+remote:      https://github.com/rakeshraheja89/sample-java-programs/pull/new/devbranch
+remote:
+To git@github.com:rakeshraheja89/sample-java-programs.git
+ * [new branch]      devbranch -> devbranch
+Branch devbranch set up to track remote branch devbranch from origin.
+
+10 ) create pr
+https://github.com/chrishantha/sample-java-programs/compare/master...rakeshraheja89:devbranch?expand=1
+
+change branch too mine
+validate file
+create pr
+
+11) merge the branchs
+
+----------------------------------------------------how to create server----------------------------------------------------------------
+
+ :
+
+1) ec2 - create
+
+select AMI -----> windows 2012 R2 Base
+
+number of instances - upto 
+
+vpc - create new subnet or use existing one
+
+select private subnet if you are creating new vpc
+
+why tag is required - to identify server
+eg : training windows 
+
+add security groups 
+
+launch
+
+which key pair : generate key pair via puttygen
+
+-------------------------------------------------GRADLE-----------------------------------------------
+54.201.135.74
+
+3rd server 
+
+1) project
+2) clone
+3) gradle wrapper
+4 ) build
+5 ) write the build code 
+deployment of artifact
+archive changes
+
+6 ) push the changes
+7 ) install jenkins
+8 ) configure jenkins
+9 ) create webbook
+10)  new project in jenkins
+ -- free style project
+-- added github 
+- pull the code
+-- do a gradle
+-- save the artifacts in a zip file and folder for 
+
+11) how to build grade wrapper
+
+ - whats the benefit
+  no need to install gradle on server 
+	Incrementality — Gradle avoids work by tracking input and output of tasks and only running what is necessary, and only processing files that changed when possible.
+	Build Cache — Reuses the build outputs of any other Gradle build with the same inputs, including between machines.
+	Gradle Daemon — A long-lived process that keeps build information "hot" in memory.
+
+./gradlew build
+
+ how to install java - see below 
+sudo yum -y install unzip java-1.8.0-openjdk
+
+gradlew is for windows
+gradle.bat is for linux
+
+12 ) how to build gradle project 
+
+ ./gradlew init
+it will create build.gradle - it will tell all about dependencies 
+
+now add all dependencies in build.gradle using groovy language
+
+read this https://guides.gradle.org/creating-new-gradle-builds/ for more
+
+13) how to build a node.js application
+    there is no middleware 
+
+plugins { id "com.moowork.node" version "1.2.0"
+}
+
+node {
+       download=true
+       version="9.11.1"
+       npmVersion="5.6.0"
+}
+
+task build
+
+  task zip(type: Zip) {
+ from ('.') {
+  include "*"
+  include "bin/**"
+  include "data/**"
+  include "node_modules/**"
+  include "public/**"
+  include "routes/**"
+  include "views/**"
+}
+destinationDir(file("dist"))
+baseName "sampleapp"
+}
+
+build.dependsOn zip
+zip.dependsOn npm_build
+
+build.dependsOn npm_build
+npm_build.dependsOn npmInstall
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+							install jenkins and how to use it - CI 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+can be achieved in two ways
+
+1) git to jenkins - CI
+
+2) configure CI to look git 
+   configure using via webhook
+
+ sudo yum -y install epel-release
+ sudo yum install -y wget
+ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo  (going to the repo)
+ sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key (this is for importing the key)
+ sudo yum install -y jenkins-2.121.1
+
+
+			Installed:
+		  jenkins.noarch 0:2.121.1-1.1
+
+ sudo systemctl enable jenkins
+ sudo systemctl start jenkins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
